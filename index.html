@@ -2,254 +2,1204 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sakshitha S Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Sakshitha | Futuristic Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #0f172a;
-    color: white;
-    scroll-behavior: smooth;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-/* HEADER */
-header {
-    background: #1e293b;
-    padding: 25px;
-    text-align: center;
+body{
+font-family:'Poppins',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
 }
 
-header h1 {
-    margin: 0;
-    color: #38bdf8;
+/* BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left,#00e5ff22,transparent 30%),
+radial-gradient(circle at bottom right,#ff4ecd22,transparent 30%),
+radial-gradient(circle at center,#7b2fff22,transparent 40%);
+z-index:-5;
 }
 
-/* NAV */
-nav {
-    text-align: center;
-    padding: 10px;
-    background: #020617;
+/* MOVING SPARKLES */
+
+.sparkle-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+z-index:-4;
 }
 
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: bold;
+.sparkle{
+position:absolute;
+width:5px;
+height:5px;
+border-radius:50%;
+opacity:0.9;
+filter:blur(0.5px);
+animation:moveSpark linear infinite;
 }
 
-nav a:hover {
-    color: #38bdf8;
+.sparkle::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+background:inherit;
+filter:blur(8px);
 }
 
-/* SECTIONS */
-section {
-    padding: 40px;
+.sparkle:nth-child(1){
+left:5%;
+animation-duration:7s;
+background:#00e5ff;
+box-shadow:0 0 15px #00e5ff;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
+.sparkle:nth-child(2){
+left:15%;
+animation-duration:9s;
+background:#ff4ecd;
+box-shadow:0 0 15px #ff4ecd;
+}
+
+.sparkle:nth-child(3){
+left:25%;
+animation-duration:6s;
+background:#7b2fff;
+box-shadow:0 0 15px #7b2fff;
+}
+
+.sparkle:nth-child(4){
+left:35%;
+animation-duration:8s;
+background:#00e5ff;
+box-shadow:0 0 15px #00e5ff;
+}
+
+.sparkle:nth-child(5){
+left:45%;
+animation-duration:10s;
+background:#ff4ecd;
+box-shadow:0 0 15px #ff4ecd;
+}
+
+.sparkle:nth-child(6){
+left:55%;
+animation-duration:7s;
+background:#7b2fff;
+box-shadow:0 0 15px #7b2fff;
+}
+
+.sparkle:nth-child(7){
+left:65%;
+animation-duration:11s;
+background:#00e5ff;
+box-shadow:0 0 15px #00e5ff;
+}
+
+.sparkle:nth-child(8){
+left:75%;
+animation-duration:8s;
+background:#ff4ecd;
+box-shadow:0 0 15px #ff4ecd;
+}
+
+.sparkle:nth-child(9){
+left:85%;
+animation-duration:6s;
+background:#7b2fff;
+box-shadow:0 0 15px #7b2fff;
+}
+
+.sparkle:nth-child(10){
+left:95%;
+animation-duration:9s;
+background:#00e5ff;
+box-shadow:0 0 15px #00e5ff;
+}
+
+@keyframes moveSpark{
+
+0%{
+transform:translateY(-100px);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(120vh);
+opacity:0;
+}
+
+}
+
+/* CANVAS */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-3;
+}
+
+/* CURSOR */
+
+.cursor-glow{
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#00e5ff;
+filter:blur(12px);
+pointer-events:none;
+z-index:9999;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+position:fixed;
+top:0;
+z-index:999;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 8%;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+color:#00e5ff;
+text-shadow:0 0 10px #00e5ff;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+transition:0.4s;
+}
+
+nav ul li a:hover{
+color:#00e5ff;
+text-shadow:0 0 10px #00e5ff;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 80px;
+}
+
+.hero h1{
+font-size:4.5rem;
+
+text-shadow:
+0 0 15px #00e5ff,
+0 0 35px #7b2fff,
+0 0 60px #ff4ecd;
+}
+
+.hero p{
+margin-top:20px;
+font-size:1.2rem;
+line-height:1.8;
+color:#d8d8d8;
+}
+
+/* BUTTON */
+
+.resume-btn{
+margin-top:35px;
+padding:16px 38px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+
+font-size:1rem;
+font-weight:600;
+
+color:white;
+
+background:
+linear-gradient(
+45deg,
+#00e5ff,
+#7b2fff,
+#ff4ecd
+);
+
+transition:0.4s;
+overflow:hidden;
+position:relative;
+}
+
+.resume-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 20px #00e5ff,
+0 0 40px #7b2fff,
+0 0 60px #ff4ecd;
+}
+
+/* SECTION */
+
+section{
+padding:90px 8%;
+}
+
+.section-title{
+font-size:2.7rem;
+text-align:center;
+margin-bottom:50px;
+text-shadow:0 0 15px #00e5ff;
+}
+
+/* GLASS CARD */
+
+.glass-card,
+.skill-card,
+.project-card,
+.social-card{
+
+position:relative;
+
+background:rgba(255,255,255,0.05);
+
+border-radius:32px;
+
+padding:40px;
+
+overflow:hidden;
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.5s;
+
+animation:floatCard 6s ease-in-out infinite;
+
+box-shadow:
+0 0 25px rgba(0,229,255,0.08);
+
+}
+
+.glass-card::before,
+.skill-card::before,
+.project-card::before,
+.social-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+border-radius:32px;
+
+padding:2px;
+
+background:
+linear-gradient(
+130deg,
+#00e5ff,
+#7b2fff,
+#ff4ecd,
+#00e5ff
+);
+
+background-size:400% 400%;
+
+animation:borderFlow 8s linear infinite;
+
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+}
+
+.glass-card::after,
+.skill-card::after,
+.project-card::after,
+.social-card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:inherit;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,0.12),transparent 10%),
+radial-gradient(circle at 80% 30%,rgba(0,229,255,0.12),transparent 12%),
+radial-gradient(circle at 40% 80%,rgba(255,78,205,0.12),transparent 10%);
+
+animation:cardSparkle 5s linear infinite;
+
+pointer-events:none;
+z-index: 100;
+}
+
+.glass-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.social-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 0 20px rgba(0,229,255,0.45),
+0 0 45px rgba(123,47,255,0.35),
+0 0 65px rgba(255,78,205,0.2);
+}
+
+/* ABOUT */
+
+.about-text{
+text-align:center;
+line-height:2;
+font-size:1.05rem;
+color:#d8d8d8;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:28px;
+}
+
+.skill-card{
+padding:30px 20px;
+text-align:center;
+}
+
+.skill-icon{
+font-size:2.3rem;
+margin-bottom:18px;
 }
 
 /* PROJECTS */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
 }
 
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
-    transition: 0.3s;
+
+.project-img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+display:block;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 20px rgba(56,189,248,0.3);
+.project-buttons{
+margin-top:20px;
+display:flex;
+gap:12px;
 }
 
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
+.project-buttons a{
+flex:1;
+padding:12px;
+text-align:center;
+border-radius:14px;
+text-decoration:none;
+color:white;
+position:relative;
+z-index:100;
+
+
+background:
+linear-gradient(
+45deg,
+#00e5ff,
+#7b2fff,
+#ff4ecd
+);
+
+transition:0.4s;
 }
 
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 6px;
-    text-decoration: none;
-    margin-top: 10px;
-    font-weight: bold;
-    transition: 0.3s;
+.project-buttons a:hover{
+box-shadow:
+0 0 15px #00e5ff,
+0 0 30px #7b2fff;
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px #38bdf8;
+/* CONTACT */
+
+.social-container{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:35px;
+flex-wrap:wrap;
 }
 
-/* RESUME BUTTON */
-.resume-btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: linear-gradient(45deg, #22c55e, #38bdf8);
-    color: black;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+.social-card{
+width:110px;
+height:110px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:0;
+
+text-decoration:none;
 }
 
-.resume-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #22c55e;
+.social-icon{
+font-size:2.8rem;
 }
 
-/* RESUME VIEW */
-.resume-box {
-    margin-top: 20px;
-    border: 2px solid #38bdf8;
-    border-radius: 10px;
-    overflow: hidden;
+/* HEART */
+
+.heart{
+position:absolute;
+color:#ff4ecd;
+font-size:22px;
+animation:heartAnim 1s linear forwards;
+}
+
+/* PREMIUM BLAST */
+
+.blast-particle{
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+z-index:9999;
+
+animation:premiumBlast 1.2s ease-out forwards;
+
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #020617;
+
+footer{
+padding:35px;
+text-align:center;
+color:#aaa;
 }
+
+/* ANIMATIONS */
+
+@keyframes borderFlow{
+
+0%{
+background-position:0% 50%;
+}
+
+100%{
+background-position:400% 50%;
+}
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+@keyframes heartAnim{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+
+100%{
+transform:translateY(-80px) scale(2);
+opacity:0;
+}
+
+}
+
+@keyframes premiumBlast{
+
+0%{
+transform:
+translate(0,0)
+scale(1.4);
+
+opacity:1;
+}
+
+100%{
+transform:
+translate(var(--x),var(--y))
+scale(0);
+
+opacity:0;
+}
+
+}
+
+@keyframes cardSparkle{
+
+0%{
+transform:translateX(-10px);
+}
+
+50%{
+transform:translateX(10px);
+}
+
+100%{
+transform:translateX(-10px);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3rem;
+}
+
+nav{
+flex-direction:column;
+gap:10px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Sakshitha</h1>
-    <p>Computer Science Student</p>
+<!-- MOVING SPARKLES -->
 
-    <!-- DOWNLOAD -->
-    <a class="resume-btn" href="resume.pdf" download>
-        ⬇ Download Resume
-    </a>
-</header>
+<div class="sparkle-bg">
+
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+
+</div>
+
+<canvas id="sparkCanvas"></canvas>
+
+<div class="cursor-glow"></div>
+
+<!-- NAVBAR -->
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
+
+<div class="logo">Sakshitha</div>
+
+<ul>
+<li><a href="#about">About Me</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#internship">Internship</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
 </nav>
 
-<!-- ABOUT -->
-<section id="about">
-<div class="container">
-<h2>About Me</h2>
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<h1>Sakshitha S</h1>
+
 <p>
-I am a B.Sc Computer Science student passionate about software development.
-I have experience in Python, web development, and building real-world projects
-like Face Recognition Attendance Systems.
+Computer Science Student <br>
+Web Developer
 </p>
+
+<a href="Resume Sakshi.pdf" target="_blank">
+<button class="resume-btn" id="resumeBtn">
+View Resume
+</button>
+</a>
+
+
+
 </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="glass-card sparkle-card">
+
+<div class="about-text">
+
+I am a passionate Computer Science student and aspiring Web Developer with an interest in building modern websites and smart applications using HTML, CSS, JavaScript, Python, and Flask.
+
+I have completed Typewriting in both English and Tamil with Distinction and have good knowledge of MS Office tools such as MS Excel, MS Word, and PowerPoint.
+
+I successfully completed an internship at GB Tech Solution, Tambaram, where I developed a Face Recognition Attendance System using Python and Flask, which improved my technical and problem-solving skills.
+
+I also have 2+ years of part-time experience as a Billing Staff at a jewellery shop, where I gained practical knowledge in billing, transaction processing, customer handling, and computer operations.
+
+As an enthusiastic fresher, I am eager to learn, improve my skills, and contribute to an organization while growing professionally in the field of software development.
+
+</div>
+
+</div>
+
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills">
-<div class="container">
-<h2>Skills</h2>
-<ul>
-<li>Python</li>
-<li>HTML, CSS</li>
-<li>Git & GitHub</li>
-</ul>
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🌐</div>
+<h3>HTML</h3>
 </div>
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🎨</div>
+<h3>CSS</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">⚡</div>
+<h3>JavaScript</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🐍</div>
+<h3>Python</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🔥</div>
+<h3>Flask</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">💻</div>
+<h3>GitHub</h3>
+</div>
+
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">✨</div>
+<h3>SQL</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">⌨️🖨️</div>
+<h3>Typewriting - Eng & Tamil </h3>
+</div>
+
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🖥️💳</div>
+<h3>Billing & Transaction Process</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill_icon">🤍</div>
+<h3>Customer Services</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🗒️📑</div>
+<h3>Excel, Word, Power Point</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">📩</div>
+<h3>Business Email</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🎴</div>
+<h3>Poster Creation</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🪪</div>
+<h3>Visiting Card Creation</h3>
+</div>
+
+<div class="skill-card sparkle-card">
+<div class="skill-icon">🏁</div>
+<h3>QR code Generation</h3>
+</div>
+
+
+</div>
+
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-<div class="container">
-<h2>Projects</h2>
 
-<div class="projects">
+<h2 class="section-title">Projects</h2>
 
-<div class="card">
-<img src="Images/images_attendance.jpg">
-<h3>Face Recognition Attendance</h3>
-<p>Automated attendance system using Python, OpenCV and Flask.</p>
-<a class="btn" href="https://github.com/sakshisakshitha3-eng/Face-Recognition-Attendance-System1" target="_blank">
-View GitHub
+<div class="project-grid">
+
+    <!-- PROJECT 1 -->
+
+    <div class="project-card sparkle-card">
+
+        <img src="Images/images_attendance.jpg" class="project-img">
+
+        <h3>Face Recognition Attendance System</h3>
+
+        <p style="margin-top:15px;color:#d8d8d8;line-height:1.8;">
+
+            Flask-based attendance system with face recognition,
+            analytics dashboard, admin panel, and CSV export.
+
+        </p>
+        
+        <div class="project-buttons">
+
+            <a href="https://github.com/sakshisakshitha3-eng/Face-Recognition-Attendance-System"
+target="_blank">
+
+GitHub
+
 </a>
+        </div>
+    </div>
+     
+
+    <!-- PROJECT 2 -->
+
+    <div class="project-card sparkle-card">
+
+        <img src="Images/images_medicine.jpg" class="project-img">
+
+        <h3>Medicine Management And Billing System</h3>
+
+        <p style="margin-top:15px;color:#d8d8d8;line-height:1.8;">
+
+            Medicine inventory and billing management application
+            with responsive dashboard.
+
+        </p>
+
+        <div class="project-buttons">
+
+            <a href="https://github.com/sakshisakshitha3-eng/Medicine-Management-and-Billing-System" target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="card">
-<img src="Images/images_medicine.jpg">
-<h3>Medicine Management System</h3>
-<p>System for managing medicines and billing efficiently.</p>
-<a class="btn" href="https://github.com/sakshisakshitha3-eng/Medicine-Management-and-Billing-System" target="_blank">
-View GitHub
-</a>
-</div>
-
-</div>
-</div>
 </section>
 
-<!-- RESUME VIEW -->
-<section id="resume">
-<div class="container">
-<h2>Resume</h2>
+<!-- INTERNSHIP -->
 
-<div class="resume-box">
-<iframe src="resume.pdf" width="100%" height="600px"></iframe>
+<section id="internship">
+
+<h2 class="section-title">Internship</h2>
+
+<div class="glass-card sparkle-card">
+
+<h3 style="margin-bottom:15px;">
+GB Tech Solution, Tambaram
+</h3>
+
+<p style="color:#d8d8d8; line-height:2;">
+
+Completed internship at GB Tech Solution, Tambaram, where I worked on a 
+Face Recognition Attendance System using Python and Flask. 
+This experience improved my skills in web development, problem-solving, and real-time project development.
+
+</p>
+
 </div>
 
-<br>
+</section>
 
-<a class="resume-btn" href="resume.pdf" download>
-⬇ Download Resume
+<!-- CERTIFICATES -->
+
+<section id="certificates">
+
+<h2 class="section-title">Certificates</h2>
+
+<div class="skills-grid">
+
+<a href="Certificates/Internship Certificate.pdf" target="_blank">
+
+<div class="skill-card sparkle-card">
+
+<div class="skill-icon">🏆</div>
+
+<h3>Internship</h3>
+
+</div>
+
+</a>
+
+
+<a href="Certificates/Email Certificate.pdf" target="_blank">
+
+<div class="skill-card sparkle-card">
+
+<div class="skill-icon">📧</div>
+
+<h3>Email</h3>
+
+</div>
+
+</a>
+
+
+<a href="Certificates/Typewriting.pdf" target="_blank">
+
+<div class="skill-card sparkle-card">
+
+<div class="skill-icon">⌨️</div>
+
+<h3>Typewriting</h3>
+
+</div>
+
 </a>
 
 </div>
+
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
-<div class="container">
-<h2>Contact</h2>
-<p>Email: sakshisakshitha3@gmail.com</p>
-<p>Phone Number: 93424-59121</p>
 
-<p>
-GitHub:
-<a href="https://github.com/sakshisakshitha3-eng" style="color:#38bdf8;" target="_blank">
-Profile Link
+<h2 class="section-title">Contact</h2>
+
+<div class="social-container">
+
+<a href="tel:9342459121" class="social-card sparkle-card">
+<div class="social-icon">📱</div>
 </a>
-</p>
 
-<p>
-LinkedIn:
-<a href="https://linkedin.com/in/sakshi-sakshitha-313283365" style="color:#38bdf8;" target="_blank">
- Profile Link      
-</a></p>
+<a href="mailto:sakshisakshitha3@gmail.com" class="social-card sparkle-card">
+<div class="social-icon">📧</div>
+</a>
+
+<a href="https://linkedin.com/in/sakshi-sakshitha-313283365" target="_blank" class="social-card sparkle-card">
+<div class="social-icon">🔗</div>
+</a>
+
+<a href="https://github.com/sakshisakshitha3-eng" target="_blank" class="social-card sparkle-card">
+<div class="social-icon">💻</div>
+</a>
+
 </div>
+
 </section>
 
 <footer>
-<p>© 2026 Sakshitha Portfolio</p>
+
+© 2026 Sakshitha Portfolio
+
 </footer>
+
+<script>
+
+/* CURSOR */
+
+const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left = e.clientX - 10 + "px";
+glow.style.top = e.clientY - 10 + "px";
+
+});
+
+/* HEART EFFECT */
+
+const btn = document.getElementById("resumeBtn");
+
+btn.addEventListener("click",(e)=>{
+
+for(let i=0;i<12;i++){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "❤";
+
+heart.style.left = e.pageX + "px";
+heart.style.top = e.pageY + "px";
+
+heart.style.transform =
+`translate(${Math.random()*140-70}px,
+${Math.random()*-140}px)`;
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1000);
+
+}
+
+});
+
+/* PREMIUM BLAST EFFECT */
+
+const sparkleCards = document.querySelectorAll(".sparkle-card");
+
+sparkleCards.forEach(card=>{
+
+card.addEventListener("click",(e)=>{
+
+const colors = [
+"#00e5ff",
+"#7b2fff",
+"#ff4ecd"
+];
+
+for(let i=0;i<45;i++){
+
+const spark = document.createElement("span");
+
+spark.classList.add("blast-particle");
+
+spark.style.left = e.pageX + "px";
+spark.style.top = e.pageY + "px";
+
+spark.style.background =
+colors[Math.floor(Math.random()*colors.length)];
+
+spark.style.boxShadow =
+`0 0 15px ${spark.style.background},
+0 0 30px ${spark.style.background}`;
+
+const angle = Math.random() * Math.PI * 2;
+
+const distance = Math.random() * 220 + 40;
+
+const x = Math.cos(angle) * distance;
+const y = Math.sin(angle) * distance;
+
+spark.style.setProperty('--x', `${x}px`);
+spark.style.setProperty('--y', `${y}px`);
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.remove();
+},1200);
+
+}
+
+});
+
+});
+
+/* CANVAS PARTICLES */
+
+const canvas = document.getElementById("sparkCanvas");
+
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle{
+
+constructor(){
+
+this.x = Math.random()*canvas.width;
+this.y = Math.random()*canvas.height;
+
+this.radius = Math.random()*3+1;
+
+this.speedY = Math.random()*1+0.3;
+this.speedX = Math.random()*0.6-0.3;
+
+const colors = [
+"#00e5ff",
+"#7b2fff",
+"#ff4ecd"
+];
+
+this.color =
+colors[Math.floor(Math.random()*colors.length)];
+
+}
+
+update(){
+
+this.y += this.speedY;
+this.x += this.speedX;
+
+if(this.y > canvas.height){
+
+this.y = -20;
+this.x = Math.random()*canvas.width;
+
+}
+
+}
+
+draw(){
+
+ctx.beginPath();
+
+ctx.arc(
+this.x,
+this.y,
+this.radius,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle = this.color;
+
+ctx.shadowBlur = 20;
+ctx.shadowColor = this.color;
+
+ctx.fill();
+
+}
+
+}
+
+for(let i=0;i<160;i++){
+
+particles.push(new Particle());
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((particle)=>{
+
+particle.update();
+particle.draw();
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+});
+
+</script>
 
 </body>
 </html>
